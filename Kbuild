@@ -93,7 +93,7 @@ CONFIG_QCOM_ESE_UPLOAD := y
 # Feature flags which are not (currently) configurable via Kconfig
 
 #Whether to build debug version
-BUILD_DEBUG_VERSION := 1
+BUILD_DEBUG_VERSION := 0
 
 #Enable this flag to build driver in diag version
 BUILD_DIAG_VERSION := 1
@@ -1318,7 +1318,7 @@ KBUILD_CPPFLAGS += $(CDEFINES)
 # WLAN driver.  Note that we must use EXTRA_CFLAGS here so that it
 # will override the kernel settings.
 ifeq ($(call cc-option-yn, -Wmaybe-uninitialized),y)
-EXTRA_CFLAGS += -Wmaybe-uninitialized
+EXTRA_CFLAGS += -Wmaybe-uninitialized  -Wno-error -Wno-return-type -Wno-unused-function
 endif
 
 # Module information used by KBuild framework
